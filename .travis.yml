@@ -15,9 +15,9 @@ services:
 install: true
 
 script:
-  - docker build --build-arg UBUNTU=${UBUNTU_DIST} --build-arg BUILD_TYPE=${BUILD_TYPE} -t hassaanirshad/occam:latest -f docker/occam.Dockerfile .
+  - docker build --build-arg UBUNTU=${UBUNTU_DIST} --build-arg BUILD_TYPE=${BUILD_TYPE} -t hassaanirshad/occam -f docker/occam.Dockerfile .
 
   - 'if [ "$TRAVIS_EVENT_TYPE" = "push" ] ;
         then echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-          && docker push hassaanirshad/occam:latest;
+          && docker push hassaanirshad/occam;
      fi '
